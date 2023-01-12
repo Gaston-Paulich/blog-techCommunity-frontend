@@ -1,0 +1,83 @@
+<div class="card bgLight">
+    <div class="container py-5">
+        <div class="card-body">
+            
+            <div class="row">
+                <div class="col-md-8 col-12 pe-md-5 pe-0 d-none d-md-block">
+                    <h1 class="display-5">
+                        Tech Community news
+                    </h1>
+                    <p class="lead">
+                       
+                    </p>
+                    <hr>
+                    <small>
+                        Ingresa al portal de noticias para conocer más acerca de Tech Community.
+                    </small>
+                    <hr>
+                    <button class="myButton" routerLink="/all_blogs">Ir al Portal</button>
+                    <a class="myButton" routerLink="/login">Log in</a>
+                </div>
+
+                <div class="col-md-4 col-12">
+                    <form #signupForm="ngForm" (ngSubmit)="signUp()" class="row g-3">
+
+                        <div class="col-md-6 col-12">
+                          <label class="form-label">Nombre*</label>
+                          <input type="text" class="form-control" [class.is-invalid]="first_name.touched && first_name.invalid" required #first_name="ngModel" [(ngModel)]="signupData.data.first_name" name="first_name">
+                          <small *ngIf="first_name.touched && first_name.invalid" class="text-danger">
+                            Es obligatorio completar este campo!
+                          </small>
+                        </div>
+
+                        <div class="col-md-6 col-12">
+                          <label class="form-label">Apellido*</label>
+                          <input type="text" class="form-control" [class.is-invalid]="last_name.touched && last_name.invalid" required #last_name="ngModel" [(ngModel)]="signupData.data.last_name" name="last_name">
+                          <small *ngIf="last_name.touched && last_name.invalid" class="text-danger">
+                            Es obligatorio completar este campo!
+                          </small>
+                        </div>
+
+                        <div class="col-12">
+                          <label class="form-label">Direccion de email*</label>
+                          <input type="email" class="form-control" [class.is-invalid]="email.touched && email.invalid" required #email="ngModel" [(ngModel)]="signupData.data.email" name="email">
+                          <small *ngIf="email.touched && email.invalid" class="text-danger">
+                            Es obligatorio completar este campo!
+                          </small>
+                        </div>
+
+                        <div class="col-12">
+                          <label class="form-label">Contraseña*</label>
+                          <input type="password" class="form-control" [class.is-invalid]="password.touched && password.invalid" required #password="ngModel" [(ngModel)]="signupData.data.password" name="password">
+                          <small *ngIf="password.touched && password.invalid" class="text-danger">
+                            Es obligatorio completar este campo!
+                          </small>
+
+                          <small *ngIf="signupData.error" class="text-danger">
+                            {{signupData.error}}!
+                          </small>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                          <button class="myButton2" type="submit" [disabled]="signupForm.invalid || signupData.loading">
+                              {{ signupData.loading ? 'Ingresando...' : 'Registrate' }}
+                          </button>
+                          
+                        </div>
+
+                      </form>
+                </div>
+            </div>
+
+          </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row py-5">
+
+       
+        
+
+    </div>
+</div>
