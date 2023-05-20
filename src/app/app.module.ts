@@ -33,7 +33,7 @@ import { WriteBlogComponent } from './write-blog/write-blog.component';
     ReverseArrayPipe,
     ProfileEditComponent,
     ContactComponent,
-    CategoryComponentComponent,
+    CategoryComponentComponent
     
   ],
   imports: [

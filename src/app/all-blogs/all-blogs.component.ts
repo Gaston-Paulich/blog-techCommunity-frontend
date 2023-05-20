@@ -10,7 +10,7 @@ import { BlogService } from '../services/blog.service';
 })
 export class AllBlogsComponent implements OnInit {
 
-  apiUrl;
+  
   allBlogs: AllBlogsModel = {
     sub: null,
     error: null,

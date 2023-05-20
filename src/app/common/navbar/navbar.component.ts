@@ -22,15 +22,17 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.page = this._utils.page;
-    this.User = this._authService.$User;
+    
     this._authService.getUserRole().subscribe(data => {
       if(data){
         this.role = data.role;
         
       }
     });
+    this.page = this._utils.page;
+    this.User = this._authService.$User;
 
+    
   }
 
   logout() {

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { BlogDetailsModel } from '../interfaces/blog-details-model';
 import { PostComment } from '../interfaces/post-comment';
@@ -7,6 +7,7 @@ import { PostReact } from '../interfaces/post-react';
 import { UserProfile } from '../interfaces/user-profile';
 import { AuthService } from '../services/auth.service';
 import { BlogService } from '../services/blog.service';
+
 
 @Component({
   selector: 'app-blog',
@@ -60,7 +61,8 @@ export class BlogComponent implements OnInit, OnDestroy {
   constructor(
     private _authService: AuthService,
     private _route: ActivatedRoute,
-    private _blogService: BlogService
+    private _blogService: BlogService,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -77,6 +79,23 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.User.sub.unsubscribe();
   }
 
+  deleteBlog(blogId) { 
+
+    this.blog.error = null;
+
+    this.blog.sub = this._blogService.deleteBlogg(blogId)
+    .subscribe(res => {
+
+    
+      this.blog.sub.unsubscribe();
+      alert('Estás seguro de que quieres eliminar esta noticia?')
+      this._router.navigate(['/all_blogs']);
+
+    }, err => {
+      this.blog.error = err;
+      this.blog.sub.unsubscribe();
+    });
+  }
 
   getLoggedInUserData(){
     this.User.loading = true;

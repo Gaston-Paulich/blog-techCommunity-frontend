@@ -48,5 +48,12 @@ export class BlogService {
       catchError(err => this._errorService.handleError(err))
     );
   }
+  deleteBlogg(blogId) {
+    return this._http.delete(`${environment.apiUrl}/blog/details/${blogId}`)
+    .pipe(
+      catchError(err => this._errorService.handleError(err))
+    );
+  }
+  
 
 }

@@ -1,7 +1,5 @@
 
-<div>
-    <h1 *ngIf="role === 'user'">No tienes permisos para crear una noticia</h1>
-</div>
+
 <div class="container" *ngIf="role === 'admin'">
     <div class="row py-5">
 
@@ -65,4 +63,7 @@
               </form>
         </div>
     </div>
+</div>
+<div>
+    <h1 *ngIf="role === 'user'">No tienes permisos para crear una noticia</h1>
 </div>
