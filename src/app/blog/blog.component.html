@@ -103,8 +103,8 @@
                     </button>
                 </div>
             </form>
-            <div class="row g-3 mb-3">
-                <button (click)="deleteBlog(blog.blogId)" class="btn btn-dark mb-3"  style="width: 100%">
+            <div class="row g-3 mb-3" *ngIf="role === 'admin'">
+                <button  (click)="deleteBlog(blog.blogId)" class="btn btn-dark mb-3"  style="width: 100%">
                     eliminar noticia
                 </button>
             </div>

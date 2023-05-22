@@ -16,6 +16,8 @@ import { BlogService } from '../services/blog.service';
 })
 export class BlogComponent implements OnInit, OnDestroy {
 
+  role: string = null;
+
   apiUrl;
   blog: BlogDetailsModel = {
     sub: null,
@@ -72,6 +74,12 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.getLoggedInUserData();
     this.blog.blogId = this._route.snapshot.paramMap.get('blogId');
     this.getBlogDetails(this.blog.blogId);
+    this._authService.getUserRole().subscribe(data => {
+      if(data){
+        this.role = data.role;
+        
+      }
+    });
 
   }
 
